@@ -24,22 +24,22 @@ run();
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list": {
-      console.log(await moduleContacts.listContacts());
+      console.table(await moduleContacts.listContacts());
       return moduleContacts.listContacts();
     }
     case "get": {
-      console.log(await moduleContacts.getContactsById(id));
+      console.table(await moduleContacts.getContactsById(id));
       return moduleContacts.getContactsById(id);
     }
     case "add": {
-      console.log(await moduleContacts.addContact(name, email, phone));
+      console.table(await moduleContacts.addContact(name, email, phone));
       return moduleContacts.addContact(name, email, phone);
     }
     case "remove": {
-      console.log(await moduleContacts.removeContact(id));
+      console.table(await moduleContacts.removeContact(id));
       return moduleContacts.removeContact(id);
     }
     default:
-      console.warn("\x1B[31m Unknown action type!");
+      console.warn("Unknown action type!");
   }
 }

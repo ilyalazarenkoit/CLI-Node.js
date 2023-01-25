@@ -20,6 +20,9 @@ async function getContactsById(id) {
   try {
     const data = await getParsedContacts();
     const contact = data.find((item) => item.id === id);
+    if (!contact) {
+      throw new Error(e);
+    }
     return contact;
   } catch (e) {
     console.log(e);
